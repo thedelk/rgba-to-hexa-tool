@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const InputWrapper = styled.div`
   display: flex;
@@ -14,6 +14,7 @@ const InputWrapper = styled.div`
     margin-top: 0.25rem;
     background-color: transparent;
     border: 1px solid transparent;
+    text-transform: lowercase;
     border-bottom: 1px solid ${({ theme }) => theme.textMain};
     color: ${({ theme }) => theme.textMain};
     padding: 0.6rem 0.7rem;

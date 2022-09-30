@@ -39,6 +39,7 @@ const ColorConverter = ({ setMainBackground }) => {
     setrgbValue(e.target.value);
     const hex = convertRGB(e.target.value);
     if (hex) {
+      navigator.clipboard.writeText(hex.substring(1).toLowerCase());
       sethexaValue(hex);
     }
   };
@@ -50,11 +51,19 @@ const ColorConverter = ({ setMainBackground }) => {
     }
   };
 
+  const copy = () =>
+    navigator.clipboard.writeText(hexaValue.substring(1).toLowerCase());
+
   return (
     <Wrapper background={hexaValue}>
       <Input label="RGBA" value={rgbValue} onChange={onChangeRGBA} />
       <span>TO</span>
-      <Input label="HEXA" value={hexaValue} onChange={onChangeHEXA} />
+      <Input
+        label="HEXA"
+        value={hexaValue.toLowerCase()}
+        onChange={onChangeHEXA}
+      />
+      <button onClick={copy}>Copy</button>
     </Wrapper>
   );
 };
